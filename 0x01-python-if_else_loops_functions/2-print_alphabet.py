@@ -1,3 +1,3 @@
 #!/usr/bin/python3
 for lowercase in range(97, 123):
-    print(f"{chr(lowercase)}", end="")
+    print("{}".format(chr(lowercase)), end="")
