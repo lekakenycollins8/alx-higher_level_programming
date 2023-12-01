@@ -14,4 +14,4 @@ if __name__ == "__main__":
     if operator not in list_op:
         print("Unknown operator. Available operators: +, -, * and /")
         exit(1)
-    print("{:d} {:s} {:d} = {:d}".format(a, op, b, list_op[operator](a, b)))
+    print("{:d} {:s} {:d} = {:d}".format(a, op, b, list_op[op](a, b)))
