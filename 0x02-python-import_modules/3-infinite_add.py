@@ -1,10 +1,10 @@
 #!/usr/bin/python3
 if __name__ == "__main__":
-    import sys
+    from sys import argv
     
     result = 0
 
-    if len(sys.argv) > 1:
-        for i in range(1, len(sys.argv)):
-            result += int(sys.argv[i])
+    if len(argv) > 1:
+        for i in range(1, len(argv)):
+            result += int(argv[i])
             print("{:d}".format(result))
