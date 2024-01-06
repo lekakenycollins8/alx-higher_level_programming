@@ -90,7 +90,7 @@ class Rectangle:
             return ""
         display = []
         for i in range(self.__height):
-            display.append("#" * self.__width)
+            display.append(str(self.print_symbol) * self.__width)
         return '\n'.join(display)
 
     def __repr__(self):
