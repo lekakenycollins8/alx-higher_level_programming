@@ -8,7 +8,6 @@ class MyList(list):
         list: base class
     Attributes: print_sorted- Prints sorted list
     """
-    
     def print_sorted(self):
         """prints the list, but sorted (ascending sort)"""
         print(sorted(self))
