@@ -4,7 +4,7 @@
 
 class BaseGeometry:
     """Base class
-    Attributes: 
+    Attributes:
         public instance method
     """
     def area(self):
