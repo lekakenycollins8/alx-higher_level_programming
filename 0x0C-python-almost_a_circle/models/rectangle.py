@@ -40,3 +40,12 @@ class Rectangle(Base):
             raise TypeError("y must be an integer")
         elif y < 0:
             raise ValueError("y must be >=0")
+
+        self.__width = width
+        self.__height = height
+        self.__x = x
+        self.__y = y
+
+    def area(self):
+        """area of rectangle"""
+        return self.__width * self.__height
