@@ -20,9 +20,8 @@ class Rectangle(Base):
             id- class id
         """
         super().__init__(id=id)
-        """validating all setter methods"""
         if not isinstance(width, int):
-            raise TypeError("width must be an integer")
+            raise TypeError("width must be an intger")
         elif width <= 0:
             raise ValueError("width must be > 0")
 
@@ -39,13 +38,77 @@ class Rectangle(Base):
         if not isinstance(y, int):
             raise TypeError("y must be an integer")
         elif y < 0:
-            raise ValueError("y must be >=0")
-
+            raise ValueError("y must be >= 0")
+        
         self.__width = width
         self.__height = height
         self.__x = x
         self.__y = y
+    """validating all setter methods"""
+
+    @property
+    def width(self):
+        """width getter"""
+        return self.__width
+
+    @width.setter
+    def width(self, value):
+        """width setter"""
+        if not isinstance(value, int):
+            raise TypeError("width must be an integer")
+        elif value <= 0:
+            raise ValueError("width must be > 0")
+        else:
+            self.__width = value
+        
+    @property
+    def height(self, value):
+        """height getter"""
+        return self.__width
+
+    @height.setter
+    def height(self, value):
+        """height setter"""
+        if not isinstance(value, int):
+            raise TypeError("height must be an integer")
+        elif value <= 0:
+            raise ValueError("height must be > 0")
+        else:
+            self.__height = value
+
+    @property
+    def x(self):
+        """x getter"""
+        return self.__x
+
+    @x.setter
+    def x(self, value):
+        """x setter"""
+        if not isinstance(value, int):
+            raise TypeError("x must be an integer")
+        elif value < 0:
+            raise ValueError("x must be >= 0")
+        else:
+            self.__x = value
+
+    @property
+    def y(self):
+        """y getter"""
+        return self.__y
+
+    @y.setter
+    def y(self, value):
+        """y setter"""
+        if not isinstance(value, int):
+            raise TypeError("y must be an integer")
+        elif value < 0:
+            raise ValueError("y must be >=0")
 
     def area(self):
         """area of rectangle"""
         return self.__width * self.__height
+
+    def display(self):
+        """prints the display of rectangle with #"""
+        for i in range(self.__height):
+            print("#" * self.__width)
