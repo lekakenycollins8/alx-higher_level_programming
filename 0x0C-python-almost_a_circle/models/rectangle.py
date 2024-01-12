@@ -45,7 +45,6 @@ class Rectangle(Base):
         self.__x = x
         self.__y = y
     """validating all setter methods"""
-
     @property
     def width(self):
         """width getter"""
@@ -112,3 +111,13 @@ class Rectangle(Base):
         """prints the display of rectangle with #"""
         for i in range(self.__height):
             print("#" * self.__width)
+
+    def __str__(self):
+        """string representation of rectangle"""
+        w = self.__width
+        h = self.__height
+        x = self.__x
+        y = self.__y
+        c = self.__class__.__name__
+        rep = "[{}] ({}) {}/{} - {}/{}".format(c, self.id, x, y, w, h)
+        return rep
