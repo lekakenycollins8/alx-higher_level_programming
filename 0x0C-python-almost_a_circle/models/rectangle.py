@@ -20,4 +20,23 @@ class Rectangle(Base):
             id- class id
         """
         super().__init__(id=id)
-        
+        """validating all setter methods"""
+        if not isinstance(width, int):
+            raise TypeError("width must be an integer")
+        elif width <= 0:
+            raise ValueError("width must be > 0")
+
+        if not isinstance(height, int):
+            raise TypeError("height must be an integer")
+        elif height <= 0:
+            raise ValueError("height must be > 0")
+
+        if not isinstance(x, int):
+            raise TypeError("x must be an integer")
+        elif x < 0:
+            raise ValueError("x must be >= 0")
+
+        if not isinstance(y, int):
+            raise TypeError("y must be an integer")
+        elif y < 0:
+            raise ValueError("y must be >=0")
