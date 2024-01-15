@@ -21,10 +21,10 @@ class Square(Rectangle):
     def __str__(self):
         """string representation of square"""
         s = self.__class__.__name__
-        x = self.x
-        y = self.y
-        w = self.width
-        return "[{}] ({}) {}/{} - {}".format(s, self.id, x, y, w)
+        x_x = self.x
+        y_y = self.y
+        w = self.__size
+        return "[{}] ({}) {}/{} - {}".format(s, self.id, x_x, y_y, w)
 
     @property
     def size(self):
@@ -41,3 +41,31 @@ class Square(Rectangle):
         else:
             self.__width = value
 
+    def update(self, *args, **kwargs):
+        """assigns attributes to object"""
+        if len(args) >= 1:
+            self.id = args[0]
+        if len(args) >= 2:
+            self.__size = args[1]
+        if len(args) >= 3:
+            self.x = args[2]
+        if len(args) >= 4:
+                self.y = args[3]
+        if not args:
+            if 'id' in kwargs:
+                self.id = kwargs['id']
+            if 'size' in kwargs:
+                self.__size = kwargs['size']
+            if 'x' in kwargs:
+                self.x = kwargs['x']
+            if 'y' in kwargs:
+                self.y = kwargs['y']
+
+    def to_dictionary(self):
+        """dictionary representation of square"""
+        sq_dict = {}
+        sq_dict['id'] = self.id
+        sq_dict['size'] = self.__size
+        sq_dict['x'] = self.x
+        sq_dict['y'] = self.y
+        return sq_dict
