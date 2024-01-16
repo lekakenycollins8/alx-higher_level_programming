@@ -16,8 +16,7 @@ class Square(Rectangle):
     def __init__(self, size, x=0, y=0, id=None):
         """instanstiation of attributes"""
         super().__init__(id=id, width=size, height=size, x=x, y=y)
-        self.__size = size
-    
+
     def __str__(self):
         """string representation of square"""
         s = self.__class__.__name__
@@ -29,7 +28,7 @@ class Square(Rectangle):
     @property
     def size(self):
         """width getter"""
-        return self.__width
+        return self.__size
 
     @Rectangle.width.setter
     def size(self, value):
@@ -43,15 +42,16 @@ class Square(Rectangle):
 
     def update(self, *args, **kwargs):
         """assigns attributes to object"""
-        if len(args) >= 1:
-            self.id = args[0]
-        if len(args) >= 2:
-            self.__size = args[1]
-        if len(args) >= 3:
-            self.x = args[2]
-        if len(args) >= 4:
+        if args:
+            if len(args) >= 1:
+                self.id = args[0]
+            if len(args) >= 2:
+                self.__size = args[1]
+            if len(args) >= 3:
+                self.x = args[2]
+            if len(args) >= 4:
                 self.y = args[3]
-        if not args:
+        else:
             if 'id' in kwargs:
                 self.id = kwargs['id']
             if 'size' in kwargs:
