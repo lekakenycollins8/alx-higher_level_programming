@@ -127,28 +127,23 @@ class Rectangle(Base):
 
     def update(self, *args, **kwargs):
         """assigns arguments to each attribute"""
-        if len(args) >= 1:
-            self.id = args[0]
-        if len(args) >= 2:
-            self.__width = args[1]
-        if len(args) >= 3:
-            self.__height = args[2]
-        if len(args) >= 4:
-            self.__x = args[3]
-        if len(args) >= 5:
-            self.__y = args[4]
-
-        if not args:
-            if 'id' in kwargs:
-                self.id = kwargs['id']
-            if 'width' in kwargs:
-                self.__width = kwargs['width']
-            if 'height' in kwargs:
-                self.__height = kwargs['height']
-            if 'x' in kwargs:
-                self.__x = kwargs['x']
-            if 'y' in kwargs:
-                self.__y = kwargs['y']
+        if args:
+            if len(args) >= 1:
+                self.id = args[0]
+            if len(args) >= 2:
+                self.__width = args[1]
+            if len(args) >= 3:
+                self.__height = args[2]
+            if len(args) >= 4:
+                self.__x = args[3]
+            if len(args) >= 5:
+                self.__y = args[4]
+        else:
+            self.id = kwargs.get('id', self.id)
+            self.__width = kwargs.get('width', self.__width)
+            self.__height = kwargs.get('height', self.__height)
+            self.__x = kwargs.get('x', self.__x)
+            self.__y = kwargs.get('y', self.__y)
 
     def to_dictionary(self):
         """returns the dictionary representation of a Rectangle"""
