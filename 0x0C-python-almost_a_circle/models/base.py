@@ -5,6 +5,7 @@
 import json
 import os
 import csv
+import turtle
 
 class Base:
     """This is the Base class
@@ -114,3 +115,48 @@ class Base:
                 instances.append(instance)
 
         return instances
+    @staticmethod
+    def draw(list_rectangles, list_squares):
+        """draws a rectangle and square using turtle"""
+        #create a turtle screen
+        screen = turtle.Screen()
+        screen.title("Rectangle and Square Drawer")
+        #create a turtle object
+        drawer = turtle.Turtle()
+        #function to draw rectangle
+        def draw_rectangle(rectangle):
+            drawer.penup()
+            drawer.goto(rectangle.x, rectangle.y)
+            drawer.pendown()
+            drawer.color("yellow")
+            drawer.begin_fill()
+            for _ in range(2):
+                drawer.forward(rectangle.width)
+                drawer.left(90)
+                drawer.forward(rectangle.height)
+                drawer.left(90)
+            drawer.end_fill()
+        # Function to draw a square
+        def draw_square(square):
+            drawer.penup()
+            drawer.goto(square.x, square.y)
+            drawer.pendown()
+            drawer.color("red")  
+            drawer.begin_fill()
+
+            for _ in range(4):
+                drawer.forward(square.side)
+                drawer.left(90)
+
+            drawer.end_fill()
+
+        # Draw all rectangles
+        for rectangle in list_rectangles:
+            draw_rectangle(rectangle)
+
+        # Draw all squares
+        for square in list_squares:
+            draw_square(square)
+
+        # Close the window when clicked
+        screen.exitonclick()
