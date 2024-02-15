@@ -2,9 +2,12 @@
 -- tv_genres table contains only one record where name = Comedy
 -- Each record should display: tv_shows.title
 -- Results must be sorted in ascending order by the show title
-SELECT ts.title
-FROM tv_shows AS ts
-LEFT JOIN tv_show_genres AS tsg ON ts.id = tsg.show_id
-LEFT JOIN tv_genres as tg ON tg.id = tsg.genre_id
-WHERE tg.name = "Comedy"
-ORDER BY ts.title ASC;
+SELECT t.`title`
+  FROM `tv_shows` AS t
+       INNER JOIN `tv_show_genres` AS s
+       ON t.`id` = s.`show_id`
+
+       INNER JOIN `tv_genres` AS g
+       ON g.`id` = s.`genre_id`
+       WHERE g.`name` = "Comedy"
+ ORDER BY t.`title`;
