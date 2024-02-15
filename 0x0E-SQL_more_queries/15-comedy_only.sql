@@ -4,7 +4,7 @@
 -- Results must be sorted in ascending order by the show title
 SELECT ts.title
 FROM tv_shows AS ts
-INNER JOIN tv_show_genres AS tsg ON ts.id = tsg.show_id
-INNER JOIN tv_genres as tg ON tg.id = tsg.genre_id
+LEFT JOIN tv_show_genres AS tsg ON ts.id = tsg.show_id
+LEFT JOIN tv_genres as tg ON tg.id = tsg.genre_id
 WHERE tg.name = "Comedy"
-ORDER BY ts.title;
+ORDER BY ts.title ASC;
