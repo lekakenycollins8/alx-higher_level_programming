@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-"""prints the first State object from the database"""
+"""lists all State objects from the database"""
 
 
 from model_state import Base, State
@@ -15,9 +15,7 @@ if __name__ == "__main__":
     Base.metadata.create_all(engine)
     Session = sessionmaker(bind=engine)
     session = Session()
-    first_state = session.query(State).order_by(State.id).first()
-    if first_state:
-        print("{}: {}".format(first_state.id, first_state.name))
-    else:
-        print("Nothing")
+    query= session.query(State).filter(State.name.like("%a%")).order_by(State.id).all()
+    for state in query:
+        print("{}: {}".format(state.id, state.name))
     session.close()
