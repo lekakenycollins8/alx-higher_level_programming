@@ -16,7 +16,4 @@ class State(Base):
     id = Column(Integer, primary_key=True, nullable=False,
                 autoincrement=True, unique=True)
     name = Column(String(128), nullable=False)
-    
-    from relationship_city import City
-
-    cities = relationship("City", backref="states")
+    citi = relationship("City", backref="state")
