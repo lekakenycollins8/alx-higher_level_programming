@@ -8,11 +8,11 @@ import urllib.parse
 
 if __name__ == "__main__":
     url = argv[1]
-    email_value = {'email': argv[2]}
+    email = argv[2]
+    email_value = {'email': email}
     data = urllib.parse.urlencode(email_value)
     data = data.encode('utf8')
-    header = {"Content-Type": 'application/x-www-form-urlencoded'}
-    req = urllib.request.Request(url, data, header)
+    req = urllib.request.Request(url, data=data, method='POST')
     with urllib.request.urlopen(req) as response:
         page = response.read().decode('utf8')
-    print("Your email is: {}".format(page))
+    print(page)
