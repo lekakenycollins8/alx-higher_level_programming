@@ -15,7 +15,7 @@ if __name__ == "__main__":
     user_commit = response.json()
     try:
         for i in range(10):
-            print("{}: {}".format(user_commit[i].get('sha'), 
-                user_commit[i].get('commit').get('author').get('name')))
+            print("{}: {}".format(user_commit[i].get('sha'), \ 
+                    user_commit[i].get('commit').get('author').get('name')))
     except IndexError:
         pass

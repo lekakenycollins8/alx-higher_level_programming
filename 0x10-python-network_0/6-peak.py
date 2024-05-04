@@ -1,6 +1,7 @@
 #!/usr/bin/python3
 """Module to find the peak in a list of integers"""
 
+
 def find_peak(list_of_integers):
     """finds peak in list of integers"""
     if not list_of_integers:
